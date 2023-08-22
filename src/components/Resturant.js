@@ -2,7 +2,7 @@ import { DISH_URL } from "../utils/contants";
 
 //Named export
  export const ResturantCard = ({ resData }) => {
-    const {cloudinaryImageId, name, cuisines, avgRating, deliveryTime } = resData?.data?.data;
+    const {cloudinaryImageId, name, cuisines, avgRating, deliveryTime } = resData?.info;
     return (
       <div className="res-card">
         <img

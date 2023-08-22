@@ -47,3 +47,22 @@ h4 {
   background-color: bisque;
   cursor: pointer;
 }
+.shimmer-cards{
+  width:250px;
+  height: 300px;
+  margin: 20px;
+  background-color:#f0f0f0;
+}
+.shimmer-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+.filter-btn{
+  display: flex;
+  padding:  10px;
+  margin: 10px;
+}
+.input-box
+{
+  padding: 0px 5px;
+}
