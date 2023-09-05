@@ -1,24 +1,3 @@
-/**
- * 
- * 
- * Header
-    logo
-    nav Items
-Body
-    searchbar
-    resturantContainer
-    resturantCard
-        -image
-        -name of resturant ,cuisine,star rating,delivery time
-footer
-    copyright
-    links
-    address
-    contact
- * 
- * 
- * 
- */
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
@@ -30,11 +9,6 @@ import { Error } from "./components/Error";
 import { Children } from "react/cjs/react.production.min";
 import ResturantMenu from "./components/ResturantMenu";
 const AppLayout = () => {
-  {
-    /* //Header 
-      //Body 
-      //Footer */
-  }
   return (
     <div className="app">
       <Header />
