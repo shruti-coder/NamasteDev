@@ -2,10 +2,10 @@ import { ResturantCard } from "./Resturant";
 import { resList } from "../utils/mockData";
 import { useState, useEffect } from "../../node_modules/react";
 import { Shimmer } from "./Shimmer";
-import{Link} from"react-router-dom";
+import { Link } from "react-router-dom";
 export const Body = () => {
   const [lisResList, setLisResList] = useState([]);
-  const[filteredList,setFilteredList] = useState([]);
+  const [filteredList, setFilteredList] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -14,7 +14,8 @@ export const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.572646&lng=88.36389500000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.572646&lng=88.36389500000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    
       );
     const json = await data.json();
     console.log(json);
@@ -31,8 +32,10 @@ export const Body = () => {
   // if (lisResList === undefined) {
   //   return <Shimmer />;
   // }
-   
-  return (lisResList === undefined)?(<Shimmer />):(
+
+  return lisResList === undefined ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       {console.log("i am rendering")}
       <div className="filter-btn">
@@ -45,17 +48,17 @@ export const Body = () => {
               setSearchText(e.target.value);
             }}
           />
-          <button className="btn" 
-          onClick={() => {
-            console.log("List of Resturant" + lisResList);
-            // if(searchText.length !== 0)
-            
-            const filterResult =lisResList.filter((res)=>
-            res.info.name.toLowerCase().includes(searchText.toLowerCase())
-            );
-            setFilteredList(filterResult);
-          
-          }}
+          <button
+            className="btn"
+            onClick={() => {
+              console.log("List of Resturant" + lisResList);
+              // if(searchText.length !== 0)
+
+              const filterResult = lisResList.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredList(filterResult);
+            }}
           >
             Search
           </button>
@@ -64,9 +67,7 @@ export const Body = () => {
         <button
           className="btnfilter"
           onClick={() => {
-            const filter = lisResList.filter(
-              (res) => res.info.avgRating > 4.5
-            );
+            const filter = lisResList.filter((res) => res.info.avgRating > 4.5);
             console.log(filter);
             setFilteredList(filter);
           }}
@@ -80,9 +81,12 @@ export const Body = () => {
         {/* {console.log("listcard :", lisResList)} */}
 
         {filteredList.map((resturant) => (
-         <Link
-         key={resturant?.info?.id} 
-         to={"/resturants/"+ resturant?.info?.id}><ResturantCard resData={resturant} /></Link> 
+          <Link
+            key={resturant?.info?.id}
+            to={"/resturants/" + resturant?.info?.id}
+          >
+            <ResturantCard resData={resturant} />
+          </Link>
         ))}
         {/* <ResturantCard resData={resList[0]} /> */}
       </div>
